@@ -1,4 +1,4 @@
-# Three.js Journey
+Shader Presentation
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).

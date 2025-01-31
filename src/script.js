@@ -75,7 +75,7 @@ const material = new THREE.ShaderMaterial({
     uEnableElevation: { value: 0 },
     uToggleTexture: { value: 0 },
     uToggleUV: { value: 0 },
-    uRandom: { value: 0.5 },
+    uRandom: { value: 1 },
     uBigWavesElevation: { value: 0.2 },
     uWater: { value: 0 },
     uDepthColor: { value: new THREE.Color(waterColors.depthColor) },
@@ -113,7 +113,7 @@ gui
   .onChange((value) => {
     material.uniforms.uToggleUV.value = value ? 1 : 0;
   });
-gui.add(material.uniforms.uRandom, "value").min(0).max(1).step(0.01).name("Random");
+gui.add(material.uniforms.uRandom, "value").min(0).max(4).step(0.01).name("Intesify");
 gui
   .add(shaderControls, "wireframe")
   .name("Wireframe")
@@ -212,7 +212,7 @@ window.addEventListener("resize", () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-camera.position.set(0, 0, 2.5);
+camera.position.set(0, 0, 1.5);
 scene.add(camera);
 
 // Controls

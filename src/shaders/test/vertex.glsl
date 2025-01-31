@@ -22,13 +22,9 @@ void main()
 
     float elevation = 0.0;
 
-    elevation += sin(modelPosition.x * uFrequency.x) * 0.1;
-    elevation += sin(modelPosition.y * uFrequency.y) * 0.1;
+    elevation += sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
+    elevation += sin(modelPosition.y * uFrequency.y ) * 0.1;
 
-    // if (uEnableElevation == 1) {
-        elevation = sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
-        elevation += sin(modelPosition.y * uFrequency.y ) * 0.1;
-    // } 
     modelPosition.z += elevation;
 
     vec4 viewPosition = viewMatrix * modelPosition;
@@ -42,3 +38,4 @@ void main()
     vElevation = uEnableElevation == 1 ? elevation :  0.0;
 
 }
+

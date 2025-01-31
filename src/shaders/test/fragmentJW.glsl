@@ -2,6 +2,7 @@
 varying vec2 vUv;          // UV coordinates from vertex shader
 uniform float uTime;
 varying float vElevation;
+uniform float uRandom;
 
 
 // Edge function to check if UV is inside a triangle (equilateral)
@@ -53,7 +54,7 @@ void main(void) {
     // Only display the pattern inside the triangle
     if (isInside( vUv)) {
         vec3 color = vec3(1.0, 0.954, 0.05); // Use checkerboard for the inside
-        color.g -= vElevation * 1.3;
+        color.g -= vElevation * 1.3* uRandom;
         gl_FragColor = vec4(color, 1.0);
     } else {
         vec3 background = vec3(0.024, 0.07, 0.229);  // Dark blue background
